@@ -1,6 +1,6 @@
 import './data.css';
 
-const Data = () => [
+const movies = [
     {
       name: 'Pulp Fiction',
       director: 'Quentin Tarantino',
@@ -322,4 +322,4 @@ const Data = () => [
       keywords: ['Epic', 'Thriller', 'Book']
     }
 ]
-export default Data;
+export default movies;

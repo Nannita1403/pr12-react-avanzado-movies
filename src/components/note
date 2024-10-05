@@ -1,0 +1,14 @@
+https://api.watchmode.com/dashboard
+
+nannimagi@gmail.com
+nanni1234
+
+apiKey= qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn 
+
+api route series
+
+https://api.watchmode.com/v1/releases/?apiKey=qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn
+
+https://api.watchmode.com/v1/list-titles/?apiKey=qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn&source_ids=203,57
+
+https://api.watchmode.com/v1/person/7110004?apiKey=qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn

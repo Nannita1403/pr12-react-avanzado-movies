@@ -1,4 +1,3 @@
-import './MoviePlaform.css';
 
 const MoviePlatform = () => {
   return (
