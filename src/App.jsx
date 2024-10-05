@@ -1,20 +1,27 @@
-import { Image } from '@chakra-ui/react'
-import React, { useContext, useState } from 'react'
-import { ThemeContext } from './providers/ThemePageProvider'
+import React, { useContext } from 'react'
+import ChangeTheme from './components/ChangeTheme/ChangeTheme'
+import { Box } from '@chakra-ui/react'
+import { ThemeContext } from './providers/ThemePageProvider';
+import { Route, Routes } from 'react-router-dom';
 
 //cambio visual del theme=por un estado
 const App = () => {
-  //cambio visual del theme por provider/useContext
- const {light, setLight} = useContext(ThemeContext);
+//traigo light para el tema y configurarlo en el Box 
+  const {light}= useContext(ThemeContext);
 
   return (
-    <div>
-      <Image src={light ? "/assets/claBN.png" : "/assets/claColor.png"} 
-      alt= "cambiar tema" w= "40px" 
-      position= "absolute" top="20px" right="20px" transition="all 0.5s"
-      cursor= "pointer" _hover={{ transform: "scale(1.3)" }}
-      onClick={()=> setLight(!light)}/>
-    </div>
+    <Box 
+      minH='100svh' 
+      bg={`var(--${light ? "light" : "dark"}-mode-bg)`} 
+      color={`var(--${light ? "light" : "dark"}-mode-text)`}
+      transition="all 0.5s">
+      <ChangeTheme/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/platform" element={<MoviePlatform />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </Box>
   )
 }
 
