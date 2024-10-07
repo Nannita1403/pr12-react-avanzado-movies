@@ -21,7 +21,7 @@ const App = () => {
       transition="all 0.5s">
       <ChangeTheme/>
       <Routes>
-       <Route path="/" element={<Error/>} />
+       <Route path="/" element={<Home/>} />
       </Routes>
       
     </Box>

@@ -18,24 +18,30 @@ const PeticionMoviesSeries = () => {
       
       setMovies(response.results);
       }, 5000);
+
+      
     };
+    console.log(movies);
+    
     useEffect(() => {
     getMoviesSeries(); // sólo se ha ejecutado la primera vez que se ha montado el componente
     }, []); // si el array de dependencias está vacío, sólo se ejecuta una vez lo de dentro
-    
+     return (
+      <div className="MoviesContainer">
+      {movies && movies.length === 0}
+      {movies &&
+        movies.length > 0 &&
+        movies.map((movie) => (
+          <div>
+            <h3>{movie.title}</h3>
+            <img src={movie.poster_url} />
+          </div>
+        ))}
+    </div>
+  );
+     
 
-    /*<div className="MoviesContainer">
-    {movies && movies.length === 0}
-    {movies &&
-      movies.length > 0 &&
-      movies.map((movie) => (
-        <div>
-          <h3>{movie.title}</h3>
-          <img src={movie.poster_url} />
-        </div>
-      ))}
-  </div>
-);*/
+   
     /*return (
       <Flex
       wrap="wrap"
