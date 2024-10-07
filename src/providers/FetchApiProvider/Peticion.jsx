@@ -9,30 +9,26 @@ const PeticionMoviesSeries = () => {
     // [] -> está cargando
     // [datos] -> ya ha cargado y están bien
     // undefined -> está rota la petición 
-  const getMoviesSeries = () => {
-    setTimeout(async () => {
+  const getMoviesSeries = async () => {
       const res = await fetch(`https://api.watchmode.com/v1/releases/?apiKey=qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn`);
       console.log(res);
       const response = await res.json();
       console.log(response);
       
-      setMovies(response.results);
-      }, 5000);
+      setMovies(response.releases);
 
       
     };
-    console.log(movies);
+    console.log(setMovies);
     
     useEffect(() => {
     getMoviesSeries(); // sólo se ha ejecutado la primera vez que se ha montado el componente
     }, []); // si el array de dependencias está vacío, sólo se ejecuta una vez lo de dentro
      return (
       <div className="MoviesContainer">
-      {movies && movies.length === 0}
-      {movies &&
-        movies.length > 0 &&
-        movies.map((movie) => (
-          <div>
+      {movies.length &&
+        movies.map((movie, index) => (
+          <div key={index}>
             <h3>{movie.title}</h3>
             <img src={movie.poster_url} />
           </div>
