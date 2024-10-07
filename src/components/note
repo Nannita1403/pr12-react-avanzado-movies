@@ -6,9 +6,28 @@ nanni1234
 apiKey= qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn 
 
 api route series
-
 https://api.watchmode.com/v1/releases/?apiKey=qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn
 
+lista de titulos
 https://api.watchmode.com/v1/list-titles/?apiKey=qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn&source_ids=203,57
 
+datos de personales
 https://api.watchmode.com/v1/person/7110004?apiKey=qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn
+
+datos de cada titulo en detalle
+https://api.watchmode.com/v1/title/${i}/details/?apiKey=qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn&append_to_response=sources
+const ALL_MOVIES = [];
+
+    for (let i = 1; i <= 5000000; i++) {
+      fetch(`https://api.watchmode.com/v1/title/${i}/details/?apiKey=qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn&append_to_response=sources`)
+        .then((res) => res.json())
+        .then((res) => {
+          ALL_MOVIES.push(res);
+          if (i === 5000000) {
+            setPokemons(ALL_POKEMONS);
+          }
+        });
+    }
+  }, []);
+
+`https://api.watchmode.com/v1/title/${i}/details/?apiKey=qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn&append_to_response=sources`

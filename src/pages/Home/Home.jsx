@@ -1,10 +1,13 @@
+import PeticionMoviesSeries from "../../Peticion/Peticion";
+
 
 const Home = () => {
+  //const { light } = useContext(ThemeContext));
+  
+  
   return (
-    <div className='home'>
-        <h1>Home Component</h1>
-    </div>
-  );
+    <PeticionMoviesSeries/>
+  )
 };
 
 export default Home;

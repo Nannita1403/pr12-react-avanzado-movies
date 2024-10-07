@@ -3,6 +3,8 @@ import ChangeTheme from './components/ChangeTheme/ChangeTheme'
 import { Box } from '@chakra-ui/react'
 import { ThemeContext } from './providers/ThemePageProvider';
 import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import PeticionMoviesSeries from './Peticion/Peticion';
 
 //cambio visual del theme=por un estado
 const App = () => {
@@ -18,8 +20,9 @@ const App = () => {
       <ChangeTheme/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/platform" element={<MoviePlatform />} />
+       {/* <Route path="/platform" element={<MoviePlatform />} />
         <Route path="*" element={<Home />} />
+        */}
       </Routes>
     </Box>
   )
