@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import './Peticion.css';
-import { ThemeContext } from "../providers/ThemePageProvider";
+import { ThemeContext } from "../ThemePageProvider";
 import { Flex, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 

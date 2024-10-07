@@ -4,12 +4,14 @@ import { Box } from '@chakra-ui/react'
 import { ThemeContext } from './providers/ThemePageProvider';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
-import PeticionMoviesSeries from './Peticion/Peticion';
+import { useFetchData } from './providers/FetchApiProvider/FetchDataContext';
+import Error from './components/AlertError/Error';
 
 //cambio visual del theme=por un estado
 const App = () => {
 //traigo light para el tema y configurarlo en el Box 
   const {light}= useContext(ThemeContext);
+  //const {error} = useFetchData()
 
   return (
     <Box 
@@ -19,11 +21,9 @@ const App = () => {
       transition="all 0.5s">
       <ChangeTheme/>
       <Routes>
-        <Route path="/" element={<Home />} />
-       {/* <Route path="/platform" element={<MoviePlatform />} />
-        <Route path="*" element={<Home />} />
-        */}
+       <Route path="/" element={<Error/>} />
       </Routes>
+      
     </Box>
   )
 }

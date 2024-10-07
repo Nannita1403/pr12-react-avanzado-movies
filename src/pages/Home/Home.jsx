@@ -1,4 +1,4 @@
-import PeticionMoviesSeries from "../../Peticion/Peticion";
+import PeticionMoviesSeries from "../../providers/FetchApiProvider/Peticion";
 
 
 const Home = () => {
@@ -7,6 +7,7 @@ const Home = () => {
   
   return (
     <PeticionMoviesSeries/>
+    
   )
 };
 
