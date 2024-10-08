@@ -19,11 +19,11 @@ export const FetchDataProvider = ({children}) => {
      try {
          setLoading(true)
     
-        const response = await fetch(
+        const res = await fetch(
         `https://api.watchmode.com/v1/releases/?apiKey=qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn`
     )
-        const result = await response.json()
-        setFetchData(result)
+        const result = await res.json()
+        setFetchData(result.releases)
         console.log(result);
         
      } catch (error) {
