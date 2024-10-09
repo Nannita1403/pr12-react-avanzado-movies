@@ -33,9 +33,45 @@ export const FetchDataProvider = ({children}) => {
         setLoading(false)
     }};
 
+    const postData = async (data) => {
+      try {
+        const formData = new FormData()
+  
+        for (const key in data) {
+          formData.append(key, data[key])
+        }
+  
+        const coverInput = document.querySelector('input[name="cover"]')
+        if (coverInput && coverInput.files.length > 0) {
+          formData.append('cover', coverInput.files[0])
+        }
+  
+        const previewInput = document.querySelector('input[name="preview"]')
+        if (previewInput && previewInput.files.length > 0) {
+          formData.append('preview', previewInput.files[0])
+        }
+  
+        const response = await fetch(
+          'https://movie-app-backend-eight.vercel.app/api/movies',
+          {
+            method: 'POST',
+            body: formData
+          }
+        )
+  
+        const result = await response.json()
+        console.log('POST response:', result)
+  
+        fetchDataFromApi()
+      } catch (error) {
+        console.error('Error posting data:', error)
+      }};
+  
+
     const contextValue = {
         fetchData,
         setFetchData,
+        postData,
         error
       }
     
