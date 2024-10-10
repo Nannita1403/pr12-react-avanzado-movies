@@ -1,5 +1,5 @@
 import { Box, Flex, Image, Text } from '@chakra-ui/react';
-import ErrorImg from '/public/assets/404.png'
+import ErrorImg from '/src/assets/404.png'
 const Error = () => {
   return (
     <Flex

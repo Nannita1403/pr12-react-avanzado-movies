@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../ThemePageProvider";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { API_Key, LIST_MOVIES_URL } from "../Api_reQ";
+
 
 const PeticionMoviesSeries = () => {
   const { light } = useContext(ThemeContext);
@@ -9,18 +11,33 @@ const PeticionMoviesSeries = () => {
     // [] -> está cargando
     // [datos] -> ya ha cargado y están bien
     // undefined -> está rota la petición 
+    const [detailsMovies, setDetailsMovies] = useState ([]);
+
   const getMoviesSeries = async () => {
-      const res = await fetch(`https://api.watchmode.com/v1/list-titles/?apiKey=qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn&source_ids=203,57`);
+      const res = await fetch(LIST_MOVIES_URL);
       console.log(res);
       
       const response = await res.json();
-      console.log("Soy el resultado del busqueda", response);
+      console.log("Soy el resultado de la primera busqueda", response);
       
       setMovies(response.titles);
+
+    };
+
+    const getDetailMovies = async () => {
+      const resMovies = await fetch(`https://api.watchmode.com/v1/title/${title.id}/details/?apiKey=${API_Key}&append_to_response=sources`
+);
+      console.log(resMovies);
+      
+      const finalResponse = await res.json();
+      console.log("Soy el resultado del busqueda", finalResponse);
+      
+      setDetailsMovies(finalResponse.titles_id);
+
     };
     
     useEffect(() => {
-    getMoviesSeries(); // sólo se ha ejecutado la primera vez que se ha montado el componente
+      getDetailMovies(); // sólo se ha ejecutado la primera vez que se ha montado el componente
     }, []); // si el array de dependencias está vacío, sólo se ejecuta una vez lo de dentro
      return (
       <Flex wrap='wrap'
@@ -43,7 +60,7 @@ const PeticionMoviesSeries = () => {
             }} />
             <Text filter={`drop-shadow(0px 0px 2px ${
               light ? "var(--light-mode-bg-negative)" : "var(--dark-mode-bg-negative)"
-            })`} >{movie.title}</Text>
+            })`} >{movie.id} | {movie.title}</Text>
 
           </Box>
         ))}

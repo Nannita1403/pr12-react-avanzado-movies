@@ -1,3 +1,4 @@
+import Loader from "../../components/Loader/Loader";
 import PeticionMoviesSeries from "../../providers/FetchApiProvider/Peticion";
 
 
@@ -6,7 +7,8 @@ const Home = () => {
   
   
   return (
-    <PeticionMoviesSeries/>
+    //<Loader/>
+  <PeticionMoviesSeries/>
     
   )
 };
