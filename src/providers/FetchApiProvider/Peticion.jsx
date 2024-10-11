@@ -39,7 +39,7 @@ const PeticionMoviesSeries = () => {
     useEffect(() => {
       getMoviesSeries(); // sólo se ha ejecutado la primera vez que se ha montado el componente
     }, []); // si el array de dependencias está vacío, sólo se ejecuta una vez lo de dentro
-     /*return (
+     return (
       <Flex wrap='wrap'
       justify='center'
       align='center'
@@ -49,7 +49,7 @@ const PeticionMoviesSeries = () => {
       {movies.length &&
         movies.map((movie, index) => (
           <Box key={index}>
-            <Image src={movie.poster_url || ImgDefault } cursor='pointer'
+            <Image w="auto" h='200px'src={movie.poster_url || ImgDefault } cursor='pointer'
             //onClick={}
             filter={`drop-shadow(0px 0px 2px ${
               light ? "var(--light-mode-bg-negative)" : "var(--dark-mode-bg-negative)"

@@ -11,7 +11,8 @@ createRoot(document.getElementById('root')).render(
   <ChakraProvider>
     <ThemePageProvider>
       <FetchDataProvider>
-    <App/>
+        {' '}
+      <App/>
       </FetchDataProvider>
     </ThemePageProvider>
   </ChakraProvider>
