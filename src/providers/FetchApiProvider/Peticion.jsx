@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../ThemePageProvider";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
-import { API_Key, LIST_MOVIES_URL } from "../Api_reQ";
+import { RELEASES_MOVIES_URL } from "../Api_reQ";
+import ImgDefault  from "/src/assets/img_default.jpg"
 
 
 const PeticionMoviesSeries = () => {
@@ -14,17 +14,17 @@ const PeticionMoviesSeries = () => {
     const [detailsMovies, setDetailsMovies] = useState ([]);
 
   const getMoviesSeries = async () => {
-      const res = await fetch(LIST_MOVIES_URL);
+      const res = await fetch(RELEASES_MOVIES_URL);
       console.log(res);
       
       const response = await res.json();
       console.log("Soy el resultado de la primera busqueda", response);
       
-      setMovies(response.titles);
+      setMovies(response.releases);
 
     };
 
-    const getDetailMovies = async () => {
+    /*const getDetailMovies = async () => {
       const resMovies = await fetch(`https://api.watchmode.com/v1/title/${title.id}/details/?apiKey=${API_Key}&append_to_response=sources`
 );
       console.log(resMovies);
@@ -34,12 +34,12 @@ const PeticionMoviesSeries = () => {
       
       setDetailsMovies(finalResponse.titles_id);
 
-    };
+    };*/
     
     useEffect(() => {
-      getDetailMovies(); // sólo se ha ejecutado la primera vez que se ha montado el componente
+      getMoviesSeries(); // sólo se ha ejecutado la primera vez que se ha montado el componente
     }, []); // si el array de dependencias está vacío, sólo se ejecuta una vez lo de dentro
-     return (
+     /*return (
       <Flex wrap='wrap'
       justify='center'
       align='center'
@@ -49,7 +49,8 @@ const PeticionMoviesSeries = () => {
       {movies.length &&
         movies.map((movie, index) => (
           <Box key={index}>
-            <Image src={movie.poster_url} cursor='pointer'
+            <Image src={movie.poster_url || ImgDefault } cursor='pointer'
+            //onClick={}
             filter={`drop-shadow(0px 0px 2px ${
               light ? "var(--light-mode-bg-negative)" : "var(--dark-mode-bg-negative)"
             })`} 
@@ -58,9 +59,9 @@ const PeticionMoviesSeries = () => {
               transform: "scale(1.1)",
               filter: `drop-shadow(0px 0px 8px)`,
             }} />
-            <Text filter={`drop-shadow(0px 0px 2px ${
+            <Text justify='center' align='center' wrap='wrap' pt='5px' filter={`drop-shadow(0px 0px 2px ${
               light ? "var(--light-mode-bg-negative)" : "var(--dark-mode-bg-negative)"
-            })`} >{movie.id} | {movie.title}</Text>
+            })`} >{movie.title}</Text>
 
           </Box>
         ))}
