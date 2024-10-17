@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
+
 import closeIcon from '../../../assets/close.png'
 import playIcon from '../../../assets/play.png'
 import addIcon from '../../../assets/add.png'
 import likeIcon from '../../../assets/like.png'
+import { Box, Flex } from '@chakra-ui/react'
 
 const MovieDetails = ({ selectedMovie, setShowMovieDetail, setShowNavbar }) => {
   const backgroundImage = selectedMovie.preview
@@ -17,16 +19,7 @@ const MovieDetails = ({ selectedMovie, setShowMovieDetail, setShowNavbar }) => {
       })
     }
   }, [movieDetailsRef])
-
-  const getStarIcons = (score) => {
-    const stars = []
-
-    for (let i = 0; i < score; i++) {
-      stars.push(<span key={i}>&#9733;</span>)
-    }
-
-    return stars
-  }
+  
 
   const handleCloseDetails = () => {
     setShowNavbar(true)
@@ -41,8 +34,9 @@ const MovieDetails = ({ selectedMovie, setShowMovieDetail, setShowNavbar }) => {
     .join(' ● ')
 
   return createPortal(
-    <MovieOverlay>
-      <MovieDetailContainer ref={movieDetailsRef}>
+    <Flex w='100%' h='100vh' justify-content= 'center' align-items= 'center'
+    background-color= 'black'  position= 'relative'>
+      <Box ref={movieDetailsRef}>
         <MovieInfoContainer backgroundImage={backgroundImage}>
           <h3>{selectedMovie.genre}</h3>
           <h3>{getStarIcons(selectedMovie.score)}</h3>
@@ -71,8 +65,8 @@ const MovieDetails = ({ selectedMovie, setShowMovieDetail, setShowNavbar }) => {
         <CloseIconWrapper onClick={handleCloseDetails}>
           <img src={closeIcon} alt='Close icon' />
         </CloseIconWrapper>
-      </MovieDetailContainer>
-    </MovieOverlay>,
+      </Box>
+    </Flex>,
     document.body
   )
 }

@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { RELEASES_MOVIES_URL } from "../Api_reQ";
 
  const FetchDataContext = createContext();
 
@@ -8,7 +7,7 @@ export const useFetchData = ()=> {
 }
 
 export const FetchDataProvider = ({children}) => {
-    const [fetchData, setFetchData] = useState({ data: [] })
+    const [movies, setMovies] = useState({ data: [] })
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const API_Key = 'qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn'
@@ -24,7 +23,7 @@ export const FetchDataProvider = ({children}) => {
         const res = await fetch(`https://api.watchmode.com/v1/releases/?apiKey=${API_Key}`)
         console.log("Soy el res del fetch", res);
         const result = await res.json()
-        setFetchData(result.releases)
+        setMovies(result.releases)
         console.log("Soy el resultado de la primera busqueda", result);
         
      } catch (error) {
@@ -34,8 +33,8 @@ export const FetchDataProvider = ({children}) => {
         setLoading(false)
     }};
     const contextValue = {
-        fetchData,
-        setFetchData,
+        movies,
+        setMovies,
         error
     } 
     

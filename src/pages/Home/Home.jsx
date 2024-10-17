@@ -1,5 +1,7 @@
 import Loader from "../../components/Loader/Loader";
+import MovieCard from "../../components/PlatformParts/MovieCard/MovieCard";
 import PeticionMoviesSeries from "../../providers/FetchApiProvider/Peticion";
+import PreviewMovie from "../../components/PlatformParts/PreviewMovie/PreviewMovie"
 
 
 const Home = () => {
@@ -7,9 +9,14 @@ const Home = () => {
   
   
   return (
-    //<Loader/>
-  <PeticionMoviesSeries/>
-    
+    <>
+  {/*<Loader/>*/}
+  <PreviewMovie/>
+ { /*<PreviewMovie/>*/}
+
+
+
+  </>
   )
 };
 

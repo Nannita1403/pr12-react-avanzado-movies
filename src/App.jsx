@@ -11,7 +11,7 @@ import Error from './components/AlertError/Error';
 const App = () => {
 //traigo light para el tema y configurarlo en el Box 
   const {light}= useContext(ThemeContext);
-  //const {error} = useFetchData()
+  const {error} = useFetchData()
 
   return (
     <Box 
@@ -20,9 +20,10 @@ const App = () => {
       color={`var(--${light ? "light" : "dark"}-mode-text)`}
       transition="all 0.5s">
       <ChangeTheme/>
-      <Routes>
-       <Route path="/" element={<Home/>} />
-      </Routes>
+      
+      <>
+       {error ? <Error /> :<Home/>}
+      </>
       
     </Box>
   )

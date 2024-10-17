@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { MovieCategoryContainer, Card, Image } from './MovieCard.Styles'
-import MovieDetails from '../Details/MovieDetails'
+import MovieDetails from '../MovieDetails/MovieDetails'
+import { Box, Flex, Image } from '@chakra-ui/react'
+
 
 const MovieCard = ({ movies, filter, setShowNavbar }) => {
   const [showMovieDetail, setShowMovieDetail] = useState(false)
@@ -19,14 +20,14 @@ const MovieCard = ({ movies, filter, setShowNavbar }) => {
     : movies
 
   return (
-    <div style={{ display: 'flex' }}>
-      <MovieCategoryContainer>
+    <Flex style={{ display: 'flex' }}>
+      <Box display='flex' gap='0.5vw'>
         {filteredMovies.map((movie) => (
-          <Card key={movie._id} onClick={() => handleSelectMovie(movie)}>
+          <Box key={movie._id} onClick={() => handleSelectMovie(movie)}>
             <Image src={movie.cover} alt={movie.name} />
-          </Card>
+          </Box>
         ))}
-      </MovieCategoryContainer>
+      </Box>
       {showMovieDetail && (
         <MovieDetails
           setShowMovieDetail={setShowMovieDetail}
@@ -34,7 +35,7 @@ const MovieCard = ({ movies, filter, setShowNavbar }) => {
           setShowNavbar={setShowNavbar}
         />
       )}
-    </div>
+    </Flex>
   )
 }
 
