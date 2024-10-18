@@ -7,7 +7,7 @@ export const useFetchData = ()=> {
 }
 
 export const FetchDataProvider = ({children}) => {
-    const [movies, setMovies] = useState({ data: [] })
+    const [fetchData, setFetchData] = useState({ data: [] })
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const API_Key = 'cR2qHdWDwyP9PKajFjN1XpNlbAN0xAlVK6wEfbYq'
@@ -21,10 +21,11 @@ export const FetchDataProvider = ({children}) => {
      try {
          setLoading(true)
     
-        const res = await fetch(`https://api.watchmode.com/v1/releases/?apiKey=${API_Key}`)
-        console.log("Soy el res del fetch", res);
+        const res = await fetch(
+          `https://api.watchmode.com/v1/releases/?apiKey=${API_Key}`
+        )
         const result = await res.json()
-        setMovies(result.releases)
+        setFetchData(result.releases)
         console.log("Soy el resultado de la primera busqueda", result);
         
      } catch (error) {
@@ -34,8 +35,8 @@ export const FetchDataProvider = ({children}) => {
         setLoading(false)
     }};
     const contextValue = {
-        movies,
-        setMovies,
+        fetchData,
+        setFetchData,
         error
     } 
     

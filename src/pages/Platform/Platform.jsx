@@ -1,5 +1,5 @@
 import React from "react"
-import { useFetchData } from "../../providers/FetchApiProvider/FetchDataContext"
+import { useFetchData } from "../../providers/VariosFetch/FetchDataContext"
 import Loader from "../../components/Loader/Loader"
 
 const MoviePlatform = () => {
@@ -16,11 +16,11 @@ const MoviePlatform = () => {
     }
 return(
     <>
-   {/* <header>
+   <header>
         {showNavbar}
         <Navbar handleMovieSearch={handleMovieSearch} showNavbar={showNavbar} />
       </header>
-      <main>
+     {/* <main>
         <MoviePreview />
         <MovieList filter={filter} setShowNavbar={setShowNavbar} />
       </main>*/}

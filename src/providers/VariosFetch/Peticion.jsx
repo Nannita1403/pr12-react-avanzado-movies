@@ -9,7 +9,7 @@ const PeticionMoviesSeries = () => {
   const { light } = useContext(ThemeContext);
   //const [movies, setMovies] = useState([]);
   const { movies } = useFetchData();
-  
+
   //const API_Key = 'qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn'
     // [] -> está cargando
     // [datos] -> ya ha cargado y están bien

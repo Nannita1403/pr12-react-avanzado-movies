@@ -4,15 +4,18 @@ import './index.css'
 import { BrowserRouter } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 import ThemePageProvider from './providers/ThemePageProvider.jsx';
-import { FetchDataProvider } from './providers/FetchApiProvider/FetchDataContext.jsx';
+import { FetchDataProvider } from './providers/VariosFetch/FetchDataContext.jsx';
+import { IBMPeticion } from './providers/FetchApiProvider/IMBFetch.jsx';
 
 createRoot(document.getElementById('root')).render(
 <BrowserRouter>
   <ChakraProvider>
     <ThemePageProvider>
-      <FetchDataProvider>
+      {/*<FetchDataProvider>*/}
+      <IBMPeticion>
         <App/>
-      </FetchDataProvider>
+      </IBMPeticion>
+      {/*</FetchDataProvider>*/}
     </ThemePageProvider>
   </ChakraProvider>
 </BrowserRouter>
