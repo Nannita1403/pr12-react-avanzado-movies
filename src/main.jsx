@@ -11,11 +11,9 @@ createRoot(document.getElementById('root')).render(
 <BrowserRouter>
   <ChakraProvider>
     <ThemePageProvider>
-      {/*<FetchDataProvider>*/}
       <IBMPeticion>
         <App/>
       </IBMPeticion>
-      {/*</FetchDataProvider>*/}
     </ThemePageProvider>
   </ChakraProvider>
 </BrowserRouter>
