@@ -10,7 +10,8 @@ export const FetchDataProvider = ({children}) => {
     const [movies, setMovies] = useState({ data: [] })
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
-    const API_Key = 'qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn'
+    const API_Key = 'cR2qHdWDwyP9PKajFjN1XpNlbAN0xAlVK6wEfbYq'
+    //'qx04hHQnfPqBQ1XXh6Kt7U2BjfQAHEFQQMt0NCQn'
 
     useEffect(() => {
         fetchDataFromApi()
