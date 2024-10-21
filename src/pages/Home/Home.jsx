@@ -3,24 +3,26 @@ import PeticionMoviesSeries from "../../providers/VariosFetch/Peticion";
 import PreviewMovie from "../../components/PlatformParts/PreviewMovie/PreviewMovie"
 import { useFetchData } from "../../providers/FetchApiProvider/IMBFetch";
 import Loader from "../../components/Loader/Loader";
+import PreviewTitles from "../../components/PlatformParts/PreviewMovie/PreviewTitles";
 
 
 const Home = () => {
   //const { light } = useContext(ThemeContext));
-  const { movies, series } = useFetchData()
+  const { titles } = useFetchData()
   const handleMovieSearch = (inputValue) => {
     setFilter(inputValue)
   }
-
-  if (!movies.length || !series.length) {
+console.log(titles);
+  if (!titles) {
     return <Loader/>
   }
   
   return (
     <>
   {/*<Loader/>*/}
- { /*<PreviewMovie/>*/}
+ { /* <PreviewMovie/>*/}
 
+ <PreviewTitles/>
 
 
   </>

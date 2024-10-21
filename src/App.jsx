@@ -20,7 +20,6 @@ const {error} = useFetchData();
       color={`var(--${light ? "light" : "dark"}-mode-text)`}
       transition="all 0.5s">
       <ChangeTheme/>
-      
       <>
    {error ? <Error /> :<Home/>}
       </>
