@@ -1,32 +1,19 @@
-import MovieCard from "../../components/PlatformParts/MovieCard/MovieCard";
-import PeticionMoviesSeries from "../../providers/VariosFetch/Peticion";
-import PreviewMovie from "../../components/PlatformParts/PreviewMovie/PreviewMovie"
-import { useFetchData } from "../../providers/FetchApiProvider/IMBFetch";
 import Loader from "../../components/Loader/Loader";
-import PreviewTitles from "../../components/PlatformParts/PreviewMovie/PreviewTitles";
+import Footer from "../../components/partsPage/Footer/Footer";
+import Header from "../../components/partsPage/Header/Header";
+import Main from "../../components/partsPage/Main/Main";
 
 
 const Home = () => {
-  //const { light } = useContext(ThemeContext));
-  const { titles } = useFetchData()
-  const handleMovieSearch = (inputValue) => {
-    setFilter(inputValue)
-  }
-console.log(titles);
-  if (!titles) {
-    return <Loader/>
-  }
-  
   return (
     <>
   {/*<Loader/>*/}
- { /* <PreviewMovie/>*/}
-
- <PreviewTitles/>
-
-
+    <Header/>
+    <Main/>
+    <Footer/>
   </>
   )
 };
+
 
 export default Home;

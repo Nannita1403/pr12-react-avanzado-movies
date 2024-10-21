@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { IBMDataContext  } from "../../../providers/FetchApiProvider/IMBFetch";
+import { IBMDataContext  } from "../../../providers/IMBFetch";
 import ImgDefault  from "/src/assets/img_default.jpg"
 import { ThemeContext } from "../../../providers/ThemePageProvider";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";

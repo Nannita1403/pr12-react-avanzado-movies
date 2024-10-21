@@ -5,7 +5,7 @@ import { ThemeContext } from './providers/ThemePageProvider';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Error from './components/AlertError/Error';
-import { useFetchData } from './providers/FetchApiProvider/IMBFetch';
+import { useFetchData } from './providers/IMBFetch';
 
 //cambio visual del theme=por un estado
 const App = () => {
@@ -21,7 +21,7 @@ const {error} = useFetchData();
       transition="all 0.5s">
       <ChangeTheme/>
       <>
-   {error ? <Error /> :<Home/>}
+      {error ? <Error /> :<Home/>}
       </>
       
     </Box>

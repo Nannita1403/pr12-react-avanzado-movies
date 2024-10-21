@@ -4,8 +4,7 @@ import './index.css'
 import { BrowserRouter } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 import ThemePageProvider from './providers/ThemePageProvider.jsx';
-import { FetchDataProvider } from './providers/VariosFetch/FetchDataContext.jsx';
-import { IBMPeticion } from './providers/FetchApiProvider/IMBFetch.jsx';
+import { IBMPeticion } from './providers/IMBFetch.jsx';
 
 createRoot(document.getElementById('root')).render(
 <BrowserRouter>

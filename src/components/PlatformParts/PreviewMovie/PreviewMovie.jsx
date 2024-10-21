@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import rollo_bg_hor from '../../../assets/rollo_bg_hor.jpg'
 import { Box, Flex, Text } from '@chakra-ui/react'
-import { useFetchData } from '../../../providers/FetchApiProvider/IMBFetch';
+import { useFetchData } from '../../../providers/IMBFetch';
 
 
 const PreviewMovie = () => {
