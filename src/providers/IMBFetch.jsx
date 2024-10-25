@@ -15,14 +15,15 @@ export const IBMPeticion = ({ children }) => {
 	try {
 		setLoading(true)
   
-    const url = 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming?limit=45';
-	const options = {
-	method: 'GET',
-	headers: {
-		'x-rapidapi-key': '4d75142618msh44a2f5c1b3e69efp158d02jsnc51097d9e4aa',
-		'x-rapidapi-host': 'moviesdatabase.p.rapidapi.com'
-	}};
-	const response = await fetch(url, options);
+    // const url = 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming?limit=45';
+	// const options = {
+	// method: 'GET',
+	// headers: {
+	// 	'x-rapidapi-key': '4d75142618msh44a2f5c1b3e69efp158d02jsnc51097d9e4aa',
+	// 	'x-rapidapi-host': 'moviesdatabase.p.rapidapi.com'
+	// }};
+	// const response = await fetch(url, options);
+	const response = await fetch('https://ghibliapi.vercel.app/films')
 	console.log(response);
 	
 	const res = await response.json();

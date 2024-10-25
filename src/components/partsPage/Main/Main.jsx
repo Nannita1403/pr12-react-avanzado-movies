@@ -17,8 +17,8 @@ console.log(titles);
   }
   return (
     <>
-    <PreviewMovie/>
-    {/* <PreviewTitles/> */}
+    {/* <PreviewMovie/> */}
+    <PreviewTitles/>
     </>
   );
 };
